@@ -1,0 +1,105 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+.page-node-type-resource {
+    .grid-container {
+        main {
+            article {
+                .view-mode-full {
+                    .layout--twocol-section {
+                        justify-content: space-between;
+                        gap: 3rem;
+                        .layout__region--first {
+                            max-width: 60rem;
+                            height: fit-content;
+                            .block-views-blockdocument-detail-document-title-block-1 {
+                                font-size: 2.063rem;
+                                font-weight: 600;
+                            }
+                            .block-views-blockdocument-detail-monitored-by-block-1 {
+                                .views-row {
+                                    display: flex;
+                                    gap: .5rem;
+                                    margin-bottom: .7rem;
+                                    .views-field-user-picture {
+                                        img {
+                                            border-radius: 50%;
+                                            border: 2px solid $grey-border;
+                                            width: 1.438rem;
+                                            height: 1.438rem;
+                                            object-fit: cover;
+                                        }
+                                    }
+                                }
+                            }
+                            .block-field-blocknoderesourcefield-authoritativesources {
+                                margin-top: 0;
+                                .field__items {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: .8rem;
+                                }
+                            }
+                        }
+                        .layout__region--second {
+                            padding: 2.188rem;
+                            border: 1px solid $grey-border;
+                            border-radius: 6px;
+                            height: fit-content;
+
+                            .block-extra-field-blocknoderesourceflag-monitoring {
+                                a {
+                                    display: inline-block;
+                                    color: $grey-dark;
+                                    background: $grey-border;
+                                    margin: 0;
+                                    padding: 0.75rem 3.75rem;
+                                    border-radius: 6px;
+                                    border: 1px solid $grey-border;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                    text-transform: uppercase;
+                                    width: 100%;
+                                    text-align: center;
+                                    &:hover {
+                                        color: $white;
+                                        background: $grey-dark;
+                                    }
+                                }
+                            }
+                            .block {
+                                .field__item, .field-content {
+                                    font-weight: 800;
+                                    text-transform: uppercase;
+                                }
+                            }
+                            .block-views-blockdocument-detail-last-authority-change-detected-block-1, .block-field-blocknoderesourcefield-documentlastmodified {
+                                border-top: 1px solid $grey-border;
+                                padding-top: 1.875rem;
+                            }
+                        }
+                    }
+                    .layout--onecol {
+                      header {
+                          p {
+                              max-width: 47.5rem;
+                              color: $grey-dark;
+                          }
+                      }
+                    }
+                }
+            }
+        }
+    }
+}

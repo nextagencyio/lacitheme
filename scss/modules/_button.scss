@@ -1,0 +1,80 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+
+.form-actions {
+    display: flex;
+    gap: 1.5rem;
+    border-top: 1px solid $grey-border;
+    padding-top: 2rem;
+}
+
+.button {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 1.063rem 2.313rem;
+    min-height: 3.4rem;
+}
+
+.button {
+    color: $primary-blue;
+    background: rgba(0, 13, 120, .12);
+    &:hover {
+        color: $white;
+        background: $primary-blue;
+    }
+}
+
+.button.success {
+    color: $secondary-green;
+    background: rgba(57, 152, 49, .12);
+    &:hover {
+        color: $white;
+        background: $secondary-green;
+    }
+}
+
+.button--danger {
+    color: #cc3a3a;
+    background: rgba(204, 58, 58, 0.12);
+    &:hover {
+        color: $white;
+        background: #cc3a3a;
+    }
+}
+
+// ----- Header - Buttons
+header.header {    
+    .region-header {
+        .views-element-container {
+            a {
+                color: $grey-dark;
+                background: rgba(227, 227, 227, .12);
+                margin: 0;
+                padding: 0.75rem 3.75rem;
+                border-radius: 6px;
+                border: 1px solid $grey-border;
+                font-size: 0.875rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                &:hover {
+                color: $black;
+                background: $grey-border;
+                }
+            }
+        }
+    }
+}

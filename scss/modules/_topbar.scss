@@ -1,0 +1,121 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+.top-bar {
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.05);
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    ul {
+      background: transparent;
+    }
+  }
+
+  .top-bar-left {
+    gap: 2.25rem;
+
+    // ----- Logo
+    .menu-text {
+      padding: 0;
+      a {
+        border-bottom: 0 !important;
+        &:hover {
+          border-bottom: 0 !important;
+        }
+        img {
+          max-width: 10rem;
+        }
+      }
+    }
+
+    .menu {
+      gap: 1rem;
+
+      li {
+        a {
+          color: $black;
+          font-size: 1rem;
+          font-weight: 400;
+          border-bottom: 1px solid $white;
+          &:hover {
+            color: $primary-orange;
+            font-weight: 400;
+            border-bottom: 1px solid $primary-orange;
+          }
+        }
+        .is-active {
+          color: $primary-orange;
+          font-weight: 400;
+          border-bottom: 1px solid $primary-orange;
+        }
+      }
+    }
+  }
+
+
+  .top-bar-right {
+
+    .current-user-info {
+      .visible-stuff {
+        display: flex;
+        margin-right: 20px;
+        position: relative;
+        .left-col {
+          .full-name {
+            color: $black;
+            font-size: 1rem;
+            font-weight: 400;
+          }
+          .title {
+            color: $grey-dark;
+            font-size: 0.875rem;
+            font-weight: 400;
+          }
+        }
+        .right-col {
+          padding-right: 2rem;
+          // ----- User avatar
+          img {
+            border-radius: 50%;
+            border: 4px solid $grey-border;
+            margin-left: 1rem;
+            object-fit: cover;
+          }
+          background-image: url('../images/login-arrow.svg');
+          background-position: right center;
+          background-repeat: no-repeat;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+      .hidden-stuff {
+        display: none;
+        z-index:999;
+        position: absolute;
+        right: 1.5rem;
+        padding: .5rem;
+        border-radius: 6px;
+        background: $primary-blue;
+        a {
+          display: block;
+          color: $white;
+          padding: .7rem 1.2rem;
+          background: $primary-blue;
+        }
+      }
+    }
+  }
+}

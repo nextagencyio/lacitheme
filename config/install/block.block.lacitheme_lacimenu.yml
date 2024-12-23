@@ -1,0 +1,48 @@
+# This file is part of LACI.
+#
+# LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+# as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with LACI.
+# If not, see <https://www.gnu.org/licenses/>.
+#
+# Copyright 2023-2024, Lone Star Legal Aid
+#
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.laci
+  module:
+    - system
+    - user
+  theme:
+    - lacitheme
+id: lacitheme_lacimenu
+theme: lacitheme
+region: meta_header
+weight: 0
+provider: null
+plugin: 'system_menu_block:laci'
+settings:
+  id: 'system_menu_block:laci'
+  label: 'LACI menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      reviewer: reviewer
+      editor: editor
+      authenticated: authenticated
+      administrator: administrator

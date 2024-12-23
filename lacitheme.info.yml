@@ -1,0 +1,65 @@
+# This file is part of LACI.
+#
+# LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+# as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with LACI.
+# If not, see <https://www.gnu.org/licenses/>.
+#
+# Copyright 2023-2024, Lone Star Legal Aid
+#
+name: LACI Theme
+description: "Custom sub-theme, inherits from the Foundation base theme read <a href=\"http://foundation.zurb.com/docs/index.php\">framework documentation</a>"
+version: 1.1.0
+license: AGPL-3.0-or-later
+core_version_requirement: ^9.3 || ^10
+package: LACI
+type: theme
+base theme: zurb_foundation
+dependencies:
+  - drupal:simple_block
+
+# Image appears on admin/appearance
+# screenshot: images/screenshot.jpg
+
+# Uncomment these lines and change "lacitheme" to your theme name if you
+# need to add custom CSS or JS
+libraries:
+ - lacitheme/global
+
+# Regions are output in the page.html.twig
+
+regions:
+  meta_header: 'Meta header'
+  header: Header
+  help: Help
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content: Content
+  under_content: 'Under Content'
+  sidebar_first: 'Left sidebar'
+  sidebar_second: 'Right sidebar'
+  footer_first: 'Footer first column'
+  footer_middle: 'Footer middle column'
+  footer_last: 'Footer last column'
+  left_off_canvas: 'Left off canvas'
+  right_off_canvas: 'Right off canvas'
+regions_hidden:
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+# Hidden regions
+# regions_hidden[]: Page top
+# regions_hidden[]: Page bottom
+
+features:
+  - slogan
+  - favicon
+  - comment_user_picture
+  - node_user_picture
+
+logo: 'logo.png'

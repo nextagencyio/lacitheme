@@ -1,0 +1,20 @@
+on: 
+  push:
+    tags:
+      - 'v*'
+jobs:
+  package:
+    runs-on: codeberg-tiny
+      steps:
+        - run: env
+        - run: git clone ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY} -b ${GITHUB_REF_NAME} repo
+        - run: |
+            FILE=../composer-package.zip
+            cd repo
+            cat composer.json | jq ".version=\"${GITHUB_REF_NAME##v}\"" > composer.json.new
+            mv composer.json.new composer.json
+            cat composer.json
+            git ls-files | zip -@ -9v ${FILE}
+            URL=${GITHUB_SERVER_URL}/api/packages/${GITHUB_REPOSITORY_OWNER}/composer
+            curl --user ${GITHUB_ACTOR}:${{ secrets.COMPOSER_TOKEN }} --upload-file "${FILE}" "${URL}"          
+

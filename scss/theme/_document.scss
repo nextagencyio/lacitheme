@@ -1,0 +1,402 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+.page-node-type-resource,
+.page-node-type-authoritativesource {
+  article {
+
+    padding-top: 2.125rem;
+    padding-bottom: 5rem;
+
+    /* All Content blocks */
+    .block {
+      h2.block-title {
+        border-top: 1px solid $grey-border;
+        margin-top: 3.75rem;
+        padding-top: 1.625rem;
+        margin-bottom: 1rem;
+      }
+
+    }
+
+    /* Document Details section */
+    .layout.layout--twocol-section {
+      .field-label {
+        color: $grey-dark;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+      }
+
+      .block-views-blockdocument-detail-monitored-by-block-1,
+      .block-views-blockdocument-detail-document-title-block-1,
+      .field,
+      .block-extra-field-blocknoderesourceflag-monitoring,
+      .block-views-blockdocument-detail-last-authority-change-detected-block-1,
+      .block-views-blockdocument-detail-content-last-reviewed-block-1,
+      .block-views-blockauthority-detail-authority-title-block-1 {
+        margin-bottom: 1.875rem;
+      }
+    }
+
+    /* Content Review section */
+    .block-views-blockdocument-content-review-block-1 {
+
+      .authority-row {
+        padding: 1.5rem;
+        background: $white;
+        border: 1px solid $grey-border;
+        border-radius: 8px;
+        margin-bottom: 1.875rem;
+
+        .views-field-title-1 {
+          padding: 1.25rem 0px 1.25rem 0px;
+          display: flex;
+          justify-content: space-between;
+          align-items: top;
+          border-bottom: 1px solid $grey-border;
+          margin-bottom: 2.5rem;
+
+          .field-content {
+            color: $black;
+            font-size: 1.188rem;
+            font-weight: 400;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+
+          .status-tag {
+            display: flex;
+            align-items: center;
+            column-gap: 20px;
+            span {
+              display: inline-block;
+              color: $secondary-green;
+              font-size: 0.813rem;
+              font-weight: 600;
+              text-transform: uppercase;
+              background: rgba(57, 152, 49, .12);
+              padding: 0.438rem 1rem;
+              border-radius: 6px;
+              margin-left: 20px;
+              position: relative;
+            }
+            &:after {
+              content: '';
+              display: inline-block;
+              width: 38px;
+              height: 38px;
+              border-radius: 50%;
+              background-color: #fff;
+              background-image: url('../images/icon-accordion-close.svg');
+              position: relative;
+            }
+          }
+        }
+        .views-field-nothing {
+          .child-view {
+            .changes-view {
+              .views-row {
+                padding: 0;
+                border: 0;
+                border-radius: 0;
+                margin-bottom: 0;
+                .views-field-nothing {
+                  .change-header {
+                    display: flex;
+                    justify-content: space-between;
+                    .change-description {
+                      flex-basis: 70%;
+                    }
+                    .change-date {
+                      p {
+                        margin-bottom: 0;
+                      }
+                    }
+                  }
+                }
+                .views-field-nothing-1 {
+                  .change-diffs {
+                    display: flex;
+                    column-gap: 20%;
+                    .original-text {
+
+                    }
+                    .new-text {
+
+                    }
+                  }
+                  .affirm-buttons {
+                    display: flex;
+                    gap: 1rem;
+                    text-align: right;
+                  }
+                }
+              }
+            }
+            .last-checked {
+              display: none;
+            }
+          }
+        }
+        &.reviews-pending {
+          .views-field-title-1 {
+            .status-tag {
+              span {
+                background: rgba(179, 100, 152, .12);
+                color: $secondary-purple;
+              }
+            }
+          }
+          .views-field-nothing {
+            .views-element-container {
+              .views-row {
+                padding-bottom: 2.5rem;
+                margin-bottom: 2.5rem;
+                border-bottom: 1px solid $grey-border;
+                .views-field-nothing {
+                  .change-header {
+                    .change-description {
+
+                    }
+                    .change-date {
+                      text-align: right;
+                    }
+                  }
+                }
+                .views-field-nothing-1 {
+                  .change-diffs {
+                    column-gap: 0;
+                    margin: 1.5rem 0;
+
+                    .original-text, .new-text {
+                      flex-basis: 50%;
+                      background: rgba(179, 100, 152, .05);
+                      padding: 1.6rem;
+                      overflow-x: scroll;
+
+                      h5 {
+                        color: $secondary-purple;
+                        font-size: 1rem;
+                        font-weight: 800;
+                      }
+
+                      .field-content {
+                        max-height: 400px;
+                        overflow-y: scroll;
+                        padding-right: 1rem;
+                      }
+                    }
+                    .original-text {
+                      // padding-right: 2rem;
+                      border-right: 0.25rem solid #ffffff;
+                    }
+                    .new-text {
+                      // padding-left: 3rem;
+                      border-left: 0.25rem solid #ffffff;
+
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        &.authority-row-closed {
+          background: $grey-light;
+          .views-field-title-1 {
+            padding-bottom: .7rem;
+            border-bottom: none;
+            margin-bottom: 0;
+            .status-tag {
+              &:after {
+                background-image: url('../images/icon-accordion-open.svg');
+              }
+            }
+          }
+          .views-field-nothing {
+            display: none;
+          }
+        }
+      }
+      header {
+        p.needs-review {
+          display: none;
+        }
+      }
+      &.needs-review {
+        h2.block-title {
+          &:after {
+            content: 'reviews pending';
+            display: inline-block;
+            color: $secondary-yellow;
+            font-size: 0.813rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(224, 191, 9, .12);
+            padding: 0.438rem 1rem;
+            border-radius: 6px;
+            margin-left: 20px;
+            position: relative;
+            top: -0.188rem;
+
+          }
+        }
+        header {
+          p.needs-review {
+            display: block;
+          }
+          p.no-review-needed {
+            display: none;
+          }
+        }
+
+      }
+
+      .authority-row-closed {
+        background: $grey-light;
+        border: 1px solid $grey-border;
+      }
+    }
+
+    /* Authorities Review section */
+    .block-views-blockresource-authsources-review-block-1 {
+      header {
+        display: flex;
+        .message {
+          flex-basis: 70%;
+        }
+        .authsource-review-buttons {
+          flex-basis: 30%;
+          text-align: right;
+          display: flex;
+          flex-wrap: wrap;
+          align-content: flex-start;
+          justify-content: flex-end;
+          gap: 1rem;
+        }
+      }
+      .views-row {
+        display: flex;
+        gap: 2rem;
+        .field-label {
+          color: $black;
+          text-transform: none;
+          letter-spacing: normal;
+          font-weight: 400;
+          font-size: 1rem;
+        }
+      }
+      &.needs-review {
+        h2 {
+          &:after {
+            content: 'reviews pending';
+            display: inline-block;
+            color: $secondary-yellow;
+            font-size: 0.813rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: rgba(224, 191, 9, .12);
+            padding: 0.438rem 1rem;
+            border-radius: 6px;
+            margin-left: 20px;
+            position: relative;
+            top: -0.188rem;
+          }
+        }
+      }
+    }
+
+    .laci-core-document-authorities-form {
+      form {
+        width: 100%;
+        max-width: none;
+        padding: 0 0 0 0;
+        border: none;
+        border-top: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        div#edit-field-authoritativesources-wrapper {
+          flex-basis: 100%;
+          border-top: none;
+          #field-authoritativesources-values {
+            .has-multiple-fields-remove-button {
+              .referenced-entity-modal-container {
+                .form-item {
+                  padding-right: 67px;
+                }
+                &.value-set {
+                  .form-item {
+                    padding-right: 0px;
+                  }
+                }
+              }
+              a.button {
+                margin-bottom: 0;
+
+              }
+            }
+          }
+
+        }
+        input.button {
+          &.active {
+            color: #FFFFFF;
+            background: #000D78
+          }
+          &.inactive {
+            color: #93959F;
+            background: rgba(227, 227, 227, 0.8);
+            opacity: .6;
+            transition: opacity .25s ease-out;
+            &:hover {
+              opacity: 1.0;
+            }
+          }
+          &#edit-pending {
+            &.inactive {
+              color: #fff;
+              background: #000D78;
+              opacity: .4;
+            }
+          }
+          &#edit-complete {
+            color: #FFFFFF;
+            background: #399831;
+          }
+        }
+      }
+    }
+
+    /* Authorities List (again) */
+    .block-field-blocknoderesourcefield-authoritativesources {
+      margin-top: 1.875rem;
+      padding-top: 1.875rem;
+      border-top: 1px solid $grey-border;
+      margin-bottom: 1.875rem;
+      .field-label {
+      }
+      .field__items {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+      }
+    }
+
+  }
+
+}

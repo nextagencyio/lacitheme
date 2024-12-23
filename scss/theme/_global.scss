@@ -1,0 +1,656 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+
+// ----- Bring in fonts
+
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/Avenir-Book.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/Avenir-Medium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/Avenir-Heavy.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Avenir';
+    src: url('../fonts/Avenir-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+// ----- Headings
+
+h1, h2, h3 {
+    font-family: 'Avenir', sans-serif;
+    color: $black;
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2rem;
+}
+
+
+// ----- Global Styles
+
+body {
+    font-family: 'Avenir', sans-serif;
+    font-size: 1rem;
+    line-height: normal;
+    font-weight: 200;
+    color: $black;
+
+    a {
+        color: $primary-orange;
+
+        transition: color 0.25s ease-out;
+
+        &:hover {
+            color: $grey-dark;
+        }
+    }
+}
+
+.button {
+    color: $primary-blue;
+    background: rgba(0, 13, 120, 0.12);
+    &:hover {
+        color: $white;
+        background: $primary-blue;
+    }
+}
+
+.button--danger {
+    color: #cc3a3a;
+    background: rgba(204, 58, 58, 0.12);
+    &:hover {
+        color: $white;
+        background: #cc3a3a;
+    }
+}
+
+.button {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: 1.063rem 2.313rem;
+    min-height: 3.4rem;
+    display: flex;
+    max-width: fit-content;
+    align-items: center;
+}
+
+.field-label {
+    color: $grey-dark;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    padding: 0;
+}
+
+.field__item {
+    a {
+        color: $black;
+        font-size: 1.188rem;
+        font-weight: 400;
+        padding: 0.5rem 0;
+        text-decoration: underline;
+        text-underline-offset: 0.5rem;
+
+        &:hover {
+            color: $grey-dark;
+            text-decoration: none;
+            text-decoration-style: unset;
+        }
+    }
+}
+
+time {
+    color: $black;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+
+
+div#edit-field-monitors-wrapper, div#edit-field-authoritativesources-wrapper {
+    border-top: 1px solid $grey-border;
+    padding-top: 2rem;
+}
+
+div#block-lacitheme-page-title {
+    h1 {
+        margin-bottom: 3rem;
+    }
+}
+
+
+// ----- Absolute position form data
+
+@include breakpoint(1400px) {
+    div#edit-field-documentlastmodified-wrapper {
+        position: absolute;
+        top: 15rem;
+        right: 2.5rem;
+        min-width: 27%;
+
+        .js-form-item.form-item.js-form-type-date.form-item-field-documentlastmodified-0-value-time.js-form-item-field-documentlastmodified-0-value-time.form-no-label {
+            display: none;
+        }
+        div#edit-field-documentlastmodified-0--description {
+            display: none;
+        }
+    }
+    div#edit-field-authsourcelistreviewed-wrapper {
+        position: absolute;
+        top: 25rem;
+        right: 2.5rem;
+        min-width: 27%;
+
+        .js-form-item.form-item.js-form-type-date.form-item-field-authsourcelistreviewed-0-value-time.js-form-item-field-authsourcelistreviewed-0-value-time.form-no-label {
+            display: none;
+        }
+        div#edit-field-authsourcelistreviewed-0--description {
+            display: none;
+        }
+    }
+}
+
+
+.draggable a.tabledrag-handle {
+    float: left;
+    overflow: visible;
+    height: 1.7em;
+    margin-left: 0;
+    cursor: move;
+    text-decoration: none;
+}
+a.tabledrag-handle .handle {
+    width: 14px;
+    height: 14px;
+    margin: -0.5rem 0 0 0;
+    padding: 1rem;
+}
+
+.tablesort {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-size: 100%;
+    margin-left: 0.3rem;
+    margin-bottom: -0.1rem;
+}
+
+// ----- Callouts and Messages
+
+.callout {
+    position: relative;
+    margin: 1rem 0 2rem 0;
+    padding: 1rem;
+    border: 1px solid $white;
+    border-radius: 0.375rem;
+    background-color: white;
+    color: $black;
+}
+.callout.alert {
+    background-color: #fff2f0;
+    color: #cc3a3a;
+}
+.messages__wrapper {
+    .messages {
+        position: relative;
+        margin: 1rem 0 2rem 0;
+        padding: 1rem;
+        border: 1px solid $white;
+        border-radius: 0.375rem;
+        background-color: white;
+        color: $black;
+    }
+    .messages--error {
+        position: relative;
+        margin: 1rem 0 2rem 0;
+        padding: 1rem;
+        border: 1px solid $white;
+        border-radius: 0.375rem;
+        background-color: #fff2f0;
+        color: #cc3a3a;
+    }
+}
+
+// ----- Hidden items
+
+.ajax-progress-throbber {
+    display: none;
+}
+
+.js-form-item.form-item.js-form-type-vertical-tabs.form-item-.js-form-item-.form-no-label {
+    display: none;
+}
+
+
+// ----- Resource Table Status Tags
+
+td.views-field.views-field-field-review-status, td.views-field.views-field-field-authorities-review-status {
+
+    .document-status-0, .authorities-status-0, .document-status-1, .authorities-status-1 {
+        font-size: 0.813rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0.438rem 1rem;
+        border-radius: 6px;
+        margin-left: 20px;
+        position: relative;
+    }
+    .document-status-0, .authorities-status-0 {
+        color: $secondary-green;
+        background: rgba(57, 152, 49, .12);
+    }
+    .document-status-1, .authorities-status-1 {
+        color: $secondary-yellow;
+        background: rgba(224, 191, 9, .12);
+    }
+}
+
+
+// ----- Forms
+
+form {
+    box-sizing: border-box;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    border-radius: .5rem;
+    background-color: $white;
+    border: 1px solid $grey-border;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: end;
+    max-width: 60rem;
+
+    label, .label, .fieldset-legend {
+        color: $grey-dark;
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        margin-bottom: .5rem;
+        background: none;
+        padding: 0;
+    }
+}
+
+.path-frontpage, .path-your-documents, .path-all-resources, .path-all-documents, .path-all-authorities, .path-authority-errors, .path-laci {
+    form {
+        display: flex;
+        max-width: 100%;
+        justify-content: space-between;
+
+        .form-item {
+            width: 100%;
+
+            label {
+                color: $grey-dark;
+                font-size: 0.875rem;
+                font-style: italic;
+                font-weight: 200;
+                letter-spacing: 0;
+                text-transform: none;
+                margin-bottom: 0.5rem;
+                background: none;
+                padding: 0;
+            }
+        }
+        .form-actions {
+            border-top: none;
+        }
+    }
+}
+
+form#views-form-bulk-monitor-documents-page-1 {
+  display: block;
+}
+
+.full-width {
+    grid-column: span 2;
+}
+
+form input[type=text],
+form input[type=date],
+form input[type=time],
+form input[type=url],
+select,
+textarea {
+    min-height: 3.4rem;
+}
+
+.tabledrag-toggle-weight-wrapper {
+    display: none;
+}
+
+.fieldset {
+    border-radius: 0.5rem;
+}
+
+.field-multiple-table {
+    thead {
+        background-color: $grey-light;
+
+        .field-label {
+            padding: 1rem;
+
+            h4 {
+                margin: 10px;
+            }
+        }
+    }
+    tbody {
+        tr {
+            padding-top: .5rem;
+        }
+    }
+}
+#edit-field-authoritativesources-wrapper,
+#edit-field-authoritativesources,
+#edit-field-monitors-wrapper {
+  border-top: 0;
+  .field-multiple-table {
+    tbody {
+      tr {
+        td.field-multiple-drag {
+          background: green;
+          padding: 0;
+          width: 0px;
+          a.tabledrag-handle {
+            display: none;
+          }
+        }
+        td.has-multiple-fields-remove-button {
+          a.button {
+            display: none;
+          }
+          padding-bottom: 0;
+        }
+        &:last-child {
+          td.has-multiple-fields-remove-button {
+            a.button {
+              display: block;
+            }
+            padding-bottom: 1rem;
+            .form-item {
+              padding-right: 41px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.js-form-item {
+    input.button {
+        padding: .5rem 1rem;
+        min-height: 0;
+        color: $grey-dark;
+        background: $grey-light;
+        &:hover {
+            background: $grey-border;
+        }
+    }
+}
+
+
+// ----- Review history on documents/auth
+
+.log-view{
+    border-top: 1px solid $grey-border;
+    padding-top: 1rem;
+
+    h6 {
+        font-weight: 800;
+    }
+
+    .views-element-container {
+      margin-bottom: 1rem;
+        ul {
+          list-style-type: circle;
+          margin-bottom: 0;
+          li {
+            margin-top: 0.5rem;
+            a {
+              color: black;
+              text-decoration: underline;
+              text-underline-offset: 0.2rem;
+              &:hover {
+                color: #93959F;
+                text-decoration: none;
+              }
+            }
+            .name {
+
+            }
+            .status {
+                font-weight: 800;
+                color: $secondary-purple;
+            }
+            .date {
+                time {
+                    font-weight: 200;
+                    text-transform: none;
+                }
+            }
+            display: none;
+            &:first-child {
+              display: list-item;
+            }
+          }
+        }
+    }
+    footer {
+      .show-more {
+        text-decoration: underline;
+        color: $secondary-purple;
+        margin-left: 1.25rem;
+        &:hover {
+          cursor: pointer;
+          text-decoration: none;
+        }
+      }
+    }
+}
+
+.resource-with-change.views-row {
+    justify-content: flex-end;
+    gap: 3rem;
+    .views-field.views-field-nothing.latest-review-log {
+        flex: auto;
+    }
+
+    .affirm-buttons, .views-field.views-field-review-buttons {
+        display: flex;
+        gap: 1rem;
+        text-align: right;
+        justify-content: flex-end;
+
+        a.button.inactive {
+            color: $grey-dark;
+            background: rgba(227, 227, 227, .8);
+            opacity: .6;
+            transition: opacity .25s ease-out;
+            &:hover {
+                opacity: 1.0;
+            }
+        }
+
+        a.button.active {
+            opacity: 1;
+            cursor: initial;
+        }
+
+        a.button.active {
+            // styles for the middle button (Irrelevant)
+            color: $white;
+            background: $secondary-purple;
+
+            &:first-child {
+              // styles for the first button (Pending)
+                color: $white;
+                background: $primary-blue;
+            }
+
+            &:nth-child(3) {
+              // styles for the third button (Complete)
+                color: $white;
+                background: $secondary-green;
+            }
+        }
+    }
+}
+.affirm-buttons, .views-field.views-field-review-buttons {
+    display: flex;
+    gap: 1rem;
+    text-align: right;
+    justify-content: flex-end;
+
+    a.button.inactive {
+      // Styles for the middle button (Irrelevant)
+      color: $white;
+      background: $secondary-purple;
+      opacity: .4;
+      transition: opacity .25s ease-out;
+      &:hover {
+          opacity: 1.0;
+      }
+      &:first-child {
+        // styles for the first button (Pending)
+        color: $white;
+        background: $primary-blue;
+      }
+      &:nth-child(3) {
+        color: $white;
+        background: $secondary-green;
+      }
+
+    }
+
+    a.button.active {
+        opacity: 1;
+        cursor: initial;
+    }
+
+    a.button.active {
+        // styles for the middle button (Irrelevant)
+        color: $white;
+        background: $secondary-purple;
+
+        &:first-child {
+          // styles for the first button (Pending)
+            color: $white;
+            background: $primary-blue;
+        }
+
+        &:nth-child(3) {
+          // styles for the third button (Complete)
+            color: $white;
+            background: $secondary-green;
+        }
+    }
+}
+
+// ----- Form fixes
+
+.js input.form-autocomplete {
+    background-position: 98% center !important;
+}
+input#edit-field-project-0-mask-input {
+    width: 95% !important;
+}
+.referenced-entity-modal-container.value-set .referenced-entity-modal-input {
+    width: 95% !important;
+}
+.field--type-entity-reference {
+    .referenced-entity-modal-container {
+        span.field-modal-reset {
+            top: 32px !important;
+            right: -3px !important;
+        }
+    }
+}
+.has-multiple-fields-remove-button {
+    .referenced-entity-modal-container {
+        span.field-modal-reset {
+            top: 0px !important;
+            right: 0px !important;
+        }
+    }
+}
+.has-multiple-fields-remove-button {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.ui-dialog.ui-corner-all.ui-widget.ui-widget-content.ui-front.entity-modal-dialog.ui-dialog-buttons {
+    padding: 0;
+    .ui-dialog-titlebar.ui-corner-all.ui-widget-header.ui-helper-clearfix {
+        color: $white;
+        background: $primary-blue;
+        padding: 1rem;
+        button.ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close.close-entity-modal {
+            padding: 1rem;
+            margin: -1rem 1rem;
+        }
+    }
+}
+.ui-dialog-buttonpane.ui-widget-content.ui-helper-clearfix {
+    .ui-dialog-buttonset.form-actions {
+        padding: 0;
+        border: 0;
+    }
+}
+
+.ui-autocomplete {
+  .ui-menu-item {
+    a {
+      display: block;
+      width: 100%;
+      margin: .25rem 0;
+      .views-field-user-picture .field-content img {
+        border-radius: 50%;
+        border: 2px solid #E3E3E3;
+        width: 1.438rem;
+        height: 1.438rem;
+        -o-object-fit: cover;
+        object-fit: cover;
+        margin-right: 1rem;
+      }
+    }
+  }
+}

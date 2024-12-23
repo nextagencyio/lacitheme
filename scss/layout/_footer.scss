@@ -1,0 +1,63 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+// Non-modular or client styles for .l-footer region.
+footer#footer {
+    background: $grey-dark;
+    color: $white;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 1.688rem;
+    padding-bottom: 1.688rem;
+
+    .grid-x {
+        justify-content: space-between;
+        gap: 3rem;
+        max-width: 97.5rem;
+        margin: 0 auto;
+
+        div#footer-first {
+            margin-left: 0;
+            .menu {
+                gap: 1.5rem;
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+
+        div#footer-last {
+            padding: 0.7rem 1rem;
+            text-align: right;
+            margin-right: 0;
+        }
+
+        p,
+        ul li {
+          margin-bottom: .25rem;
+          a {
+            font-size: inherit;
+            text-underline-offset: 0.5rem;
+            &:hover {
+              color: #fff;
+              text-decoration: underline;
+            }
+            .ext {
+              margin-left: 5px;
+            }
+          }
+        }
+    }
+}

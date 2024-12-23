@@ -1,0 +1,67 @@
+<?php
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+
+/**
+ * @file
+ * Add your custom theme override functions here.
+ */
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function lacitheme_preprocess_block(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function lacitheme_preprocess_field(&$variables, $hook) {
+}
+
+/**
+ * Implements template_preprocess_html().
+ *
+ * Adds additional classes.
+ */
+function lacitheme_preprocess_menu(&$variables) {
+  $variables['logo_url'] = theme_get_setting('logo.url');
+}
+
+/**
+ * Implements template_preprocess_node.
+ *
+ * Add template suggestions and classes.
+ */
+function lacitheme_preprocess_node(&$variables) {
+
+
+}
+
+/**
+ * Implements template_preprocess_page.
+ *
+ * Add convenience variables and template suggestions.
+ */
+
+function lacitheme_preprocess_page(&$variables) {
+}
+
+
+/**
+ * Implements template_preprocess_views_view().
+ */
+function lacitheme_preprocess_views_view(&$variables) {
+}

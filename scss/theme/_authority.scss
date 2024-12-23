@@ -1,0 +1,214 @@
+/**
+ * This file is part of LACI.
+ *
+ * LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+ *
+ * LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+ *
+ * You should have received a copy of the GNU Affero General Public License along with LACI.
+ * If not, see <https://www.gnu.org/licenses/>.
+ *
+ * Copyright 2023-2024, Lone Star Legal Aid
+ */
+.page-node-type-authoritativesource {
+
+  .layout--twocol-section {
+
+    .layout__region--second {
+
+      /* Check Now Button */
+      #laci-core-authoritieschecknow-form {
+        // margin-top: 0;
+        padding: 0 0 0 0;
+        border: 0;
+      }
+    }
+  }
+  .layout--onecol {
+
+    /* Changes Block */
+    .block-views-blockauthority-detail-changes-block-1 {
+      .change-row {
+        padding: 1rem;
+        border: 1px solid $grey-border;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .views-field-title {
+          flex-basis: 100%;
+          padding: .6rem 0 1.3rem 0;
+          display: flex;
+          justify-content: space-between;
+          .field-content {
+            font-size: 1.188rem;
+          }
+          &:after {
+            content: '';
+            display: inline-block;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: #fff;
+            background-image: url('../images/icon-accordion-close.svg');
+            position: relative;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .views-field-field-fulltext, .views-field-field-fulltext-1 {
+          flex-basis: 50%;
+          background: rgba(179, 100, 152, .05);
+          padding: 3rem 1.5rem;
+          overflow-x: scroll;
+
+          h5 {
+            color: $secondary-purple;
+            font-size: 1rem;
+            font-weight: 800;
+          }
+          a {
+            display: inline;
+          }
+          .field-content svg {
+            display: inline-block;
+            margin-left: 5px;
+          }
+          .field-content {
+            max-height: 400px;
+            overflow-y: scroll;
+            padding-right: 1rem;
+
+          }
+        }
+
+        .views-field-field-fulltext {
+          border-right: 0.25rem solid #ffffff;
+        }
+
+        .views-field-field-fulltext-1 {
+          border-left: 0.25rem solid #ffffff;
+        }
+        .resources-with-change {
+          flex-basis: 100%;
+          margin-top: 1.3rem;
+
+          .resource-with-change {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1.3rem;
+            padding-top: 1.3rem;
+            border: none;
+            border-top: 1px solid $grey-border;
+            border-bottom: 0px;
+            border-radius: 0;
+            align-items: center;
+
+            .latest-review-log {
+              flex-basis: 50%;
+              margin-top: 0;
+
+              a {
+                color: $black;
+                text-decoration: underline;
+              }
+
+              .views-element-container {
+                display: inline;
+                div {
+                  display: inline;
+                }
+              }
+
+              .views-row {
+                margin: 0 0 0 0;
+                padding: 0 0 0 0;
+                border: none;
+                display: inline;
+                .views-field-nothing {
+                  flex-basis: auto;
+                }
+              }
+            }
+            .views-field-field-status {
+              .affirm-buttons {
+                display: flex;
+                gap: 1rem;
+                text-align: right;
+              }
+            }
+          }
+        }
+        &.change-row-closed {
+          background: #F8F8F8;
+          .views-field-title {
+            padding-bottom: 10px;
+            &:after {
+              background-image: url('../images/icon-accordion-open.svg');
+            }
+          }
+          .views-field-field-fulltext,
+          .views-field-field-fulltext-1,
+          .resources-with-change {
+            display: none;
+          }
+        }
+      }
+    }
+
+    /* Related Documents Block */
+    .block-views-blockauthority-detail-related-documents-block-1 {
+      .views-row {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border: 1px solid $grey-border;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background: $white;
+
+        .views-field {
+          .field-content {
+            a {
+              color: $black;
+              text-decoration: underline;
+              text-decoration-style: solid;
+              text-underline-offset: 0.5rem;
+              &:hover {
+                color: $grey-dark;
+                text-decoration: none;
+              }
+            }
+          }
+
+          &.views-field-nothing {
+            .views-row {
+              border: none;
+              margin-bottom: 0;
+
+              display: inline-block;
+              color: $secondary-yellow;
+              font-size: 0.813rem;
+              font-weight: bold;
+              text-transform: uppercase;
+              background: rgba(224, 191, 9, .12);
+              padding: 0.438rem 1rem;
+              border-radius: 6px;
+              margin-left: 20px;
+              position: relative;
+              top: -0.188rem;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
+

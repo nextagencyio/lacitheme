@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon-action-unflag" transform="translate(-85 -594)">
+    <rect id="Rectangle_720" data-name="Rectangle 720" width="24" height="24" transform="translate(85 594)" fill="#fff" opacity="0.003"/>
+    <g id="not_watching" data-name="not watching" transform="translate(85 594)" opacity="0.5">
+      <path id="Path_6840" data-name="Path 6840" d="M3,3,21,21" fill="none" stroke="#2d304b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_6841" data-name="Path 6841" d="M10.5,10.677A2,2,0,0,0,13.323,13.5" fill="none" stroke="#2d304b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+      <path id="Path_6842" data-name="Path 6842" d="M12,6c4.008,0,6.7,3.158,9,6a15.563,15.563,0,0,1-1.078,1.5M7.362,7.561A22.816,22.816,0,0,0,3,12c1.889,2.991,5.282,6,9,6a8.461,8.461,0,0,0,4.4-1.35" fill="none" stroke="#2d304b" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    </g>
+  </g>
+</svg>

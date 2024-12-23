@@ -1,0 +1,49 @@
+# This file is part of LACI.
+#
+# LACI is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License
+# as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+#
+# LACI is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+# of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with LACI.
+# If not, see <https://www.gnu.org/licenses/>.
+#
+# Copyright 2023-2024, Lone Star Legal Aid
+#
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user
+  theme:
+    - lacitheme
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: lacitheme_breadcrumbs
+theme: lacitheme
+region: header
+weight: -9
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
+      reviewer: reviewer
+      editor: editor
+      administrator: administrator
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/all-documents\r\n/all-authorities\r\n/authority-errors\r\n/your-documents\r\n<front>"

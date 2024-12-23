@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="icon-actions-menu" transform="translate(-85 -597)">
+    <rect id="Rectangle_719" data-name="Rectangle 719" width="24" height="24" transform="translate(85 597)" fill="#fff" opacity="0"/>
+    <g id="icon-actions" transform="translate(-1488 -22)">
+      <g id="Ellipse_503" data-name="Ellipse 503" transform="translate(1573 628)" fill="#93959f" stroke="#93959f" stroke-width="1">
+        <circle cx="3" cy="3" r="3" stroke="none"/>
+        <circle cx="3" cy="3" r="2.5" fill="none"/>
+      </g>
+      <g id="Ellipse_504" data-name="Ellipse 504" transform="translate(1582 628)" fill="#93959f" stroke="#93959f" stroke-width="1">
+        <circle cx="3" cy="3" r="3" stroke="none"/>
+        <circle cx="3" cy="3" r="2.5" fill="none"/>
+      </g>
+      <g id="Ellipse_505" data-name="Ellipse 505" transform="translate(1591 628)" fill="#93959f" stroke="#93959f" stroke-width="1">
+        <circle cx="3" cy="3" r="3" stroke="none"/>
+        <circle cx="3" cy="3" r="2.5" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
