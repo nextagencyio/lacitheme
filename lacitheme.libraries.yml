@@ -15,7 +15,7 @@ global:
   version: VERSION
   css:
     base:
-      css/lacitheme.css: {}
+      css/lacitheme.css: { weight: 50 }
   js:
     js/lacitheme.js: { }
     js/foundation.min.js: {minified: true}
