@@ -37,7 +37,7 @@ function lacitheme_preprocess_field(&$variables, $hook) {
  * Adds additional classes.
  */
 function lacitheme_preprocess_menu(&$variables) {
-  $variables['logo_url'] = theme_get_setting('logo.url');
+  $variables['theme_logo_url'] = \Drupal::service('file_url_generator')->generate(\Drupal::service('extension.list.theme')->getPath('lacitheme').'/logo.png');
 }
 
 /**
