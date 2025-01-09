@@ -57,6 +57,9 @@ function lacitheme_preprocess_node(&$variables) {
  */
 
 function lacitheme_preprocess_page(&$variables) {
+  if (empty($variables['laci_login_image_url'])) {
+    $variables['laci_login_image_url'] = \Drupal::service('file_url_generator')->generate(\Drupal::service('extension.list.theme')->getPath('lacitheme').'/images/img-login-left.png');
+  }
 }
 
 

@@ -73,6 +73,9 @@
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="login-page-wrapper">
         <div class="left-col">
+          {% if laci_login_image_url %}
+            <img src="{{ laci_login_image_url }}" />
+          {% endif %}
         </div>
         <div class="right-col">
           {% if page.meta_header %}

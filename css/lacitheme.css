@@ -9686,9 +9686,6 @@ table.cols-2 tbody tr td.views-field.views-field-link-flag.views-field-view-node
       flex-basis: 55%;
   height: 100%;
   width: 100%;
-  background-image: url("../images/img-login-left.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .section-laci .off-canvas-content .login-page-wrapper .right-col {
   -ms-flex-preferred-size: 45%;
