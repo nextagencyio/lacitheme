@@ -19,5 +19,5 @@ dependencies:
 id: copyright_notice
 title: 'Copyright Notice'
 content:
-  value: '<p>© 2023-24 Lone Star Legal Aid</p><p>Funding provided by the <a href="https://www.lsc.gov">Legal Services Corporation</a></p>'
+  value: '<p>© 2023-25 Lone Star Legal Aid</p><p>Funding provided by the <a href="https://www.lsc.gov">Legal Services Corporation</a></p>'
   format: basic_html
