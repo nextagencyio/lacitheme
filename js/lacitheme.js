@@ -13,11 +13,9 @@
  * Copyright 2023-2025, Lone Star Legal Aid
  */
 /**
- * @file
- * Placeholder file for custom sub-theme behaviors.
- *
+ * LACI theme actions.
  */
-(function ($, Drupal) {
+(function ($, Drupal, once) {
 
   /**
    * Use this behavior as a template for custom Javascript.
@@ -25,10 +23,10 @@
   Drupal.behaviors.laciTheme = {
     attach: function (context, settings) {
       // Header -- account management dropdown
-      $('.top-bar-right .current-user-info .right-col').on('click',function(){
+      $(once('lacitheme-user-box', '.top-bar-right .current-user-info .right-col', context)).on('click',function(){
         $('div.hidden-stuff').toggle();
       });
     }
   };
 
-})(jQuery, Drupal);
+})(jQuery, Drupal, once);
