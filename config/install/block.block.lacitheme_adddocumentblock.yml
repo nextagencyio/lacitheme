@@ -39,13 +39,13 @@ visibility:
   request_path:
     id: request_path
     negate: false
-    pages: "<front>\r\n/all-documents\r\n/all-authorities\r\n/your-documents"
+    pages: "/laci/all-documents\r\n/laci/all-authorities\r\n/laci/your-documents"
   user_role:
     id: user_role
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
     roles:
-      reviewer: reviewer
-      editor: editor
+      laci_reviewer: laci_reviewer
+      laci_editor: laci_editor
       administrator: administrator

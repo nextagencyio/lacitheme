@@ -42,7 +42,7 @@ visibility:
     context_mapping:
       user: '@user.current_user_context:current_user'
     roles:
-      reviewer: reviewer
-      editor: editor
+      laci_reviewer: laci_reviewer
+      laci_editor: laci_editor
       authenticated: authenticated
       administrator: administrator

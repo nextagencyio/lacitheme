@@ -40,10 +40,10 @@ visibility:
       user: '@user.current_user_context:current_user'
     roles:
       authenticated: authenticated
-      reviewer: reviewer
-      editor: editor
+      laci_reviewer: laci_reviewer
+      laci_editor: laci_editor
       administrator: administrator
   request_path:
     id: request_path
     negate: true
-    pages: "/all-documents\r\n/all-authorities\r\n/authority-errors\r\n/your-documents\r\n<front>"
+    pages: "/laci/all-documents\r\n/laci/all-authorities\r\n/laci/authority-errors\r\n/laci/your-documents\r\n<front>"
