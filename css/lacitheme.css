@@ -9803,6 +9803,60 @@ table.cols-2 tbody tr td.views-field.views-field-link-flag.views-field-view-node
 
 /* Document Chage History block styling */
 .block-views-blockdocument-change-history-block-1 .log-view { border-top: 0px; padding-top: 2.0rem;}
+.block-views-blockdocument-change-history-block-1 .log-view li {
+  margin-bottom: .5rem;
+}
+.block-views-blockdocument-change-history-block-1 .log-view span.review-status {
+  font-size: 0.813rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.438rem 1rem;
+  border-radius: 6px;
+  position: relative;
+}
+.block-views-blockdocument-change-history-block-1 .log-view span.review-status.review-status-Pending {
+  color: #E0BF09;
+  background: rgba(224, 191, 9, 0.12);
+}
+.block-views-blockdocument-change-history-block-1 .log-view span.review-status.review-status-Completed {
+  color: #399831;
+  background: rgba(57, 152, 49, 0.12);
+}
+
+/* Document Change Entity View styling */
+.node--type-documentchange div.posted { display: none; }
+
+.node--type-documentchange .view-mode-full .layout .layout__region--content .block-layout-builder {
+  margin-bottom: 1rem;
+}
+.node--type-documentchange .view-mode-full .layout .layout__region--content .block-layout-builder h2,
+.node--type-documentchange .view-mode-full .layout .layout__region--content .block-layout-builder .field-label {
+  color: #93959F;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.0rem;
+  padding: 0;
+}
+
+/* Authority Error Entity View styling */
+.node--type-laci-authorityerror div.posted { display: none; }
+
+.node--type-laci-authorityerror .field {
+  margin-bottom: 1rem;
+}
+.node--type-laci-authorityerror .field .field-label {
+  color: #93959F;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.0rem;
+  padding: 0;
+}
+
+
 
 /* A little cleanup for the Errors block on an Authority detail page */
 .block-laci-core-authoritycheckfrequency-block {
@@ -9813,7 +9867,6 @@ table.cols-2 tbody tr td.views-field.views-field-link-flag.views-field-view-node
 .block-views-blocklaci-authority-error-history-block-1 time {
   text-transform: none;
 }
-
 .block-views-blocklaci-authority-error-history-block-1 .views-field-field-is-active span {
   font-size: 0.813rem;
   font-weight: 600;
@@ -9826,12 +9879,10 @@ table.cols-2 tbody tr td.views-field.views-field-link-flag.views-field-view-node
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
 .block-views-blocklaci-authority-error-history-block-1 .status-Active .views-field-field-is-active span {
   color: #E0BF09;
   background: rgba(224, 191, 9, 0.12);
 }
-
 .block-views-blocklaci-authority-error-history-block-1 tbody tr:nth-child(even) {
   border-bottom: 1px solid rgb(242.25, 242.25, 242.25);
 }
