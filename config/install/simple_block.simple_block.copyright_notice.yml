@@ -16,6 +16,8 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+  theme:
+    - lacitheme
 id: copyright_notice
 title: 'Copyright Notice'
 content:

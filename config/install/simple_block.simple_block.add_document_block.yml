@@ -17,6 +17,8 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+  theme:
+    - lacitheme
 id: add_document_block
 title: 'Add Document Block'
 content:

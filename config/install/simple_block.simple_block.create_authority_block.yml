@@ -16,6 +16,8 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+  theme:
+    - lacitheme
 id: create_authority_block
 title: 'Create Authority Block'
 content:
