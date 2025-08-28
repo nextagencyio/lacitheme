@@ -1,7 +1,10 @@
-on: 
+on:
   push:
     tags:
       - 'v*'
+
+enable-email-notifications: true
+
 jobs:
   package:
     runs-on: codeberg-tiny
@@ -13,8 +16,18 @@ jobs:
           cd repo
           cat composer.json | jq ".version=\"${GITHUB_REF_NAME##v}\"" > composer.json.new
           mv composer.json.new composer.json
-          cat composer.json
+          for x in *.info.yml; do
+            cat ${x} | yq -o yaml ".version=\"${GITHUB_REF_NAME##v}\"" > ${x}.new
+            mv ${x}.new ${x}
+          done
+          for m in modules/*; do
+            cd ${m}
+            for x in *.info.yml; do
+              cat ${x} | yq -o yaml ".version=\"${GITHUB_REF_NAME##v}\"" > ${x}.new
+              mv ${x}.new ${x}
+            done
+            cd ../..
+          done
           git ls-files | zip -@ -9v ${FILE}
           URL=${GITHUB_SERVER_URL}/api/packages/${GITHUB_REPOSITORY_OWNER}/composer
-          curl --user ${GITHUB_ACTOR}:${{ secrets.COMPOSER_TOKEN }} --upload-file "${FILE}" "${URL}"          
-
+          curl --user ${GITHUB_ACTOR}:${{ secrets.COMPOSER_TOKEN }} --upload-file "${FILE}" "${URL}"
