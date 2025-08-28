@@ -14,6 +14,11 @@
  * Portions copyright 2023-2024, Lone Star Legal Aid
  * Other sections licensed as noted.
  */
+form.node-resource-form .form-item-revision,
+form.node-resource-edit-form .form-item-revision,
+form.node-authoritativesource-form .form-item-revision,
+form.node-authoritativesource-edit-form .form-item-revision
+{ display: none; }
 /**
  * Foundation for Sites
  * Version 6.7.4
@@ -8339,6 +8344,7 @@ div#block-lacitheme-page-title h1 {
     top: 15rem;
     right: 2.5rem;
     min-width: 27%;
+    max-width: 27%;
   }
   div#edit-field-documentlastmodified-wrapper .js-form-item.form-item.js-form-type-date.form-item-field-documentlastmodified-0-value-time.js-form-item-field-documentlastmodified-0-value-time.form-no-label {
     display: none;
@@ -8351,6 +8357,7 @@ div#block-lacitheme-page-title h1 {
     top: 25rem;
     right: 2.5rem;
     min-width: 27%;
+    max-width: 27%;
   }
   div#edit-field-authsourcelistreviewed-wrapper .js-form-item.form-item.js-form-type-date.form-item-field-authsourcelistreviewed-0-value-time.js-form-item-field-authsourcelistreviewed-0-value-time.form-no-label {
     display: none;
