@@ -12,6 +12,10 @@
         {
             "name": "Lone Star Legal Aid",
             "email": "laci@lonestarlegal.org"
+        },
+        {
+            "name": "Four Kitchens",
+            "email": "talk@fourkitchens.com"
         }
     ],
     "require": {
