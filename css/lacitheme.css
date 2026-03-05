@@ -9210,7 +9210,7 @@ input#edit-field-project-0-mask-input {
   /* Changes Block */
   /* Related Documents Block */
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row {
+.change-row {
   padding: 1rem;
   border: 1px solid #E3E3E3;
   border-radius: 8px;
@@ -9224,7 +9224,7 @@ input#edit-field-project-0-mask-input {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-title {
+.change-row .views-field-title {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   padding: 0.6rem 0 1.3rem 0;
@@ -9235,10 +9235,10 @@ input#edit-field-project-0-mask-input {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-title .field-content {
+.change-row .views-field-title .field-content {
   font-size: 1.188rem;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-title:after {
+.change-row .views-field-title:after {
   content: "";
   display: inline-block;
   width: 38px;
@@ -9248,45 +9248,48 @@ input#edit-field-project-0-mask-input {
   background-image: url("../images/icon-accordion-close.svg");
   position: relative;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-title:hover {
+.change-row .views-field-title:hover {
   cursor: pointer;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext, .page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext-1 {
+.change-row .views-field-field-fulltext,
+.change-row .views-field-field-fulltext-1 {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   background: rgba(179, 100, 152, 0.05);
   padding: 3rem 1.5rem;
   overflow-x: scroll;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext h5, .page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext-1 h5 {
+.change-row .views-field-field-fulltext h5,
+.change-row .views-field-field-fulltext-1 h5 {
   color: #B36498;
   font-size: 1rem;
   font-weight: 800;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext a, .page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext-1 a {
+.change-row .views-field-field-fulltext a,
+.change-row .views-field-field-fulltext-1 a {
   display: inline;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext .field-content svg, .page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext-1 .field-content svg {
+.change-row .views-field-field-fulltext .field-content svg,
+.change-row .views-field-field-fulltext-1 .field-content svg {
   display: inline-block;
   margin-left: 5px;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext .field-content, .page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext-1 .field-content {
+.change-row .views-field-field-fulltext .field-content,
+.change-row .views-field-field-fulltext-1 .field-content {
   max-height: 400px;
   overflow-y: scroll;
   padding-right: 1rem;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext {
-  border-right: 0.25rem solid #ffffff;
-}
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .views-field-field-fulltext-1 {
+.change-row .views-field-field-fulltext,
+.change-row .views-field-field-fulltext-1 {
   border-left: 0.25rem solid #ffffff;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change {
+.change-row .resources-with-change. .change-row .views-element-container {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   margin-top: 1.3rem;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change {
+.change-row .resource-with-change {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9303,50 +9306,52 @@ input#edit-field-project-0-mask-input {
       -ms-flex-align: center;
           align-items: center;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .latest-review-log {
+.change-row .resource-with-change .latest-review-log {
   -ms-flex-preferred-size: 50%;
       flex-basis: 50%;
   margin-top: 0;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .latest-review-log a {
+.change-row .resource-with-change .latest-review-log a {
   color: #2D304B;
   text-decoration: underline;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .latest-review-log .views-element-container {
+.change-row .resources-with-change .resource-with-change .latest-review-log .views-element-container {
   display: inline;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .latest-review-log .views-element-container div {
+.change-row .resources-with-change .resource-with-change .latest-review-log .views-element-container div {
   display: inline;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .latest-review-log .views-row {
+.change-row .resources-with-change .resource-with-change .latest-review-log .views-row {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   border: none;
   display: inline;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .latest-review-log .views-row .views-field-nothing {
+.change-row .resources-with-change .resource-with-change .latest-review-log .views-row .views-field-nothing {
   -ms-flex-preferred-size: auto;
       flex-basis: auto;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row .resources-with-change .resource-with-change .views-field-field-status .affirm-buttons {
+.change-row .resources-with-change .resource-with-change .views-field-field-status .affirm-buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1rem;
   text-align: right;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row.change-row-closed {
+.change-row.change-row-closed {
   background: #F8F8F8;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row.change-row-closed .views-field-title {
+.change-row.change-row-closed .views-field-title {
   padding-bottom: 10px;
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row.change-row-closed .views-field-title:after {
+.change-row.change-row-closed .views-field-title:after {
   background-image: url("../images/icon-accordion-open.svg");
 }
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row.change-row-closed .views-field-field-fulltext,
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row.change-row-closed .views-field-field-fulltext-1,
-.page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-changes-block-1 .change-row.change-row-closed .resources-with-change {
+.change-row.change-row-closed .views-field-field-fulltext,
+.change-row.change-row-closed .views-field-field-fulltext-1,
+.change-row.change-row-closed .views-element-container,
+.change-row.change-row-closed .change-diffs-tabs,
+.change-row.change-row-closed .resources-with-change {
   display: none;
 }
 .page-node-type-authoritativesource .layout--onecol .block-views-blockauthority-detail-related-documents-block-1 .views-row {
@@ -9804,7 +9809,7 @@ table.cols-2 tbody tr td.views-field.views-field-link-flag.views-field-view-node
 
 /* A little cleanup for Document view — especially Document History */
 .block-views-blockdocument-authorities-review-block-1 .field-label,
-.block-laci-core-authoritiesreviewformadd-block .field-label { 
+.block-laci-core-authoritiesreviewformadd-block .field-label {
   margin-top: 1.0rem;
 }
 
