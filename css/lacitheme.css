@@ -8650,6 +8650,12 @@ textarea {
           justify-content: flex-end;
   gap: 3rem;
 }
+div#redline .change-diffs .diffs-container-parent
+{ width: 100%; }
+
+.change-row.views-row .views-field-nothing-1 {
+  width: 100%;
+}
 .resource-with-change.views-row .views-field.views-field-nothing.latest-review-log {
   -webkit-box-flex: 1;
       -ms-flex: auto;
