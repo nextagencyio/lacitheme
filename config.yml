@@ -25,11 +25,9 @@ PATHS:
   # Paths to Sass libraries, which can then be loaded with @import
   foundationScss:
     - "node_modules/foundation-sites/scss"
-    - "node_modules/motion-ui/src"
   # Path to custom JS
   js:
     "js/*.js"
   # Paths to Foundation JavaScript for webpack to bundle modules
   foundationJs:
     - "node_modules/foundation-sites/dist/js/*.js"
-    - "node_modules/motion-ui/dist/*.js"

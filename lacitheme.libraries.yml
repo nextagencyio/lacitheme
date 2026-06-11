@@ -20,7 +20,6 @@ global:
     js/lacitheme.js: { }
     js/foundation.min.js: {minified: true}
     js/foundation_init.js: {}
-    js/motion-ui.min.js: {minified: true}
   dependencies:
     - core/drupal
     - core/jquery
