@@ -10,7 +10,7 @@
 # If not, see <https://www.gnu.org/licenses/>.
 # The URL of your server (e.g. http://localhost:49871 or foobar.lndo.site) for browersync
 #
-# Copyright 2023-2024, Lone Star Legal Aid
+# Copyright 2023-2026, Lone Star Legal Aid
 #
 BROWSERSYNC: 'https://laci.localhost'
 
