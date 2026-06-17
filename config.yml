@@ -30,4 +30,4 @@ PATHS:
     "js/*.js"
   # Paths to Foundation JavaScript for webpack to bundle modules
   foundationJs:
-    - "node_modules/foundation-sites/dist/js/*.js"
+    - "js/src/foundation.js"
