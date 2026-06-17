@@ -110,7 +110,7 @@ let webpackConfig = {
 // In production, the file is minified
 function javascript() {
   return gulp.src(PATHS.foundationJs)
-    .pipe(named())
+    .pipe(named(() => 'foundation.min'))
     .pipe($.sourcemaps.init())
     .pipe(webpackStream(webpackConfig, webpack2))
     .pipe($.if(PRODUCTION, $.terser()
@@ -156,6 +156,7 @@ function reload(done) {
 // Watch for changes to SCSS and JavaScript
 function watch() {
   gulp.watch(PATHS.componentScss).on('all', sassBuild);
+  gulp.watch(PATHS.foundationJs, gulp.series(javascript, browser.reload));
   gulp.watch(PATHS.js).on('all', gulp.series(browser.reload));
   gulp.watch('images-source').on('all', gulp.series(images, browser.reload));
 }
