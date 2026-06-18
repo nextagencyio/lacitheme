@@ -11,7 +11,6 @@
   "dependencies": {
     "foundation-sites": "6.7.4",
     "gulp-dart-sass": "^1.1.0",
-    "motion-ui": "~2.0.3",
     "sass": "^1.79.3",
     "what-input": "^5.2.10"
   },
