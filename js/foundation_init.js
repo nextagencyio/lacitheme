@@ -17,7 +17,7 @@
  * Initializes foundation's JavaScript.
  *
  */
-(function ($, Drupal) {
+(function ($, Drupal, once) {
 
   /**
    * Initializes foundation's JavaScript for new content added to the page.
@@ -28,4 +28,21 @@
     }
   };
 
-})(jQuery, Drupal);
+  /**
+   * Dismisses a callout (e.g. a status message) without Motion UI.
+   */
+  Drupal.behaviors.calloutDismiss = {
+    attach: function (context, settings) {
+      once('callout-dismiss', '.zurb-foundation-callout[data-closable]', context).forEach(function (el) {
+        $(el).find('[data-close]').on('click.callout', function (e) {
+          e.stopPropagation();
+          $(el).fadeOut(function () {
+            // Fire closed.zf event to trigger Zurb theme's cleanup behavior.
+            $(el).trigger('closed.zf');
+          });
+        });
+      });
+    }
+  };
+
+})(jQuery, Drupal, once);
