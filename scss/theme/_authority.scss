@@ -12,24 +12,6 @@
  *
  * Copyright 2023-2026, Lone Star Legal Aid
  */
-.page-node-type-authoritativesource {
-
-  .layout--twocol-section {
-
-    .layout__region--second {
-
-      /* Check Now Button */
-      #laci-core-authoritieschecknow-form {
-        // margin-top: 0;
-        padding: 0 0 0 0;
-        border: 0;
-      }
-    }
-  }
-  .layout--onecol {
-
-    /* Changes Block */
-    .block-views-blockauthority-detail-changes-block-1 {
       .change-row {
         padding: 1rem;
         border: 1px solid $grey-border;
@@ -61,7 +43,6 @@
           &:hover {
             cursor: pointer;
           }
-        }
         .views-field-field-fulltext, .views-field-field-fulltext-1 {
           flex-basis: 50%;
           background: rgba(179, 100, 152, .05);
@@ -160,6 +141,26 @@
           }
         }
       }
+        }
+
+.page-node-type-authoritativesource {
+
+  .layout--twocol-section {
+
+    .layout__region--second {
+
+      /* Check Now Button */
+      #laci-core-authoritieschecknow-form {
+        // margin-top: 0;
+        padding: 0 0 0 0;
+        border: 0;
+      }
+    }
+  }
+  .layout--onecol {
+
+    /* Changes Block */
+    .block-views-blockauthority-detail-changes-block-1 {
     }
 
     /* Related Documents Block */
@@ -211,4 +212,3 @@
 
   }
 }
-

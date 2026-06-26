@@ -486,11 +486,29 @@ textarea {
     }
 }
 
+div#redline {
+  .change-diffs {
+    .change-diffs {
+      width: 100%;
+      .diffs-container-parent {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.change-row.views-row {
+  .views-field-nothing-1 {
+    width: 100%;
+  }
+}
+
 .resource-with-change.views-row {
     justify-content: flex-end;
     gap: 3rem;
     .views-field.views-field-nothing.latest-review-log {
-        flex: auto;
+      flex: auto;
+      max-width: 50%;
     }
 
     .affirm-buttons, .views-field.views-field-review-buttons {
