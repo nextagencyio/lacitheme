@@ -85,8 +85,8 @@
 @include foundation-top-bar;
 
 // Helpers
-@include foundation-float-classes;
-@include foundation-visibility-classes;
+// @include foundation-float-classes;  // removed: no .float-left/.float-right anywhere
+// @include foundation-visibility-classes;  // removed: only .show-for-sr is used; kept as a hand-written rule below
 
 // Prototyping Utilities
 // https://get.foundation/sites/docs/prototyping-utilities.html
@@ -153,3 +153,28 @@
 @import "theme/login-page";
 @import "theme/ben-extras";
 @import "theme/all_authorities";
+
+// Screen-reader-only text. Foundation's visibility classes are no longer
+// included, but seven of the templates we render still emit .show-for-sr,
+// so keep the one rule that matters.
+.show-for-sr,
+.show-on-focus {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.show-on-focus:active,
+.show-on-focus:focus {
+    position: static !important;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
