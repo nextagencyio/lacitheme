@@ -75,20 +75,116 @@ tbody tr:nth-child(even) {
 
 
 // ----- Actions Menu Column
+//
+// The row actions menu: a "dots" trigger that opens a small dropdown of
+// per-row links (view, edit, publish, monitor).
+//
+// Colours come from custom properties when a site supplies them, with a
+// literal fallback so the theme stands on its own.
+
+$actions-muted:  var(--alas-muted, #6b7280);
+$actions-border: var(--alas-border, #e5e7eb);
+$actions-accent: var(--alas-royal, #0033cc);
+$actions-shadow: var(--alas-shadow, 0 1px 3px rgba(0, 0, 0, .06), 0 4px 16px rgba(0, 0, 0, .04));
 
 .views-field-nothing-3 {
     align-items: flex-end;
-    .dots {
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 24px;
-        height: 24px;
-        display: block;
-        text-indent: -9999px;
-        background-image: url('../images/icon-actions-menu.svg');
-    }
-    .action-items {
+    // The dropdown is positioned against this cell.
+    position: relative;
+    text-align: right;
 
+    // 44x44 per WCAG 2.5.5 Target Size. This was a 24px icon, which is a
+    // small target for the only route to view, edit, publish and monitor on
+    // a row. The glyph stays visually small; it is the hit area that grew,
+    // so the table does not look heavier.
+    .dots {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 8px;
+        color: $actions-muted;
+        text-decoration: none;
+        font-size: 0;
+        position: relative;
+        cursor: pointer;
+
+        &::after {
+            content: "\22EF"; // midline horizontal ellipsis
+            font-size: 1.25rem;
+            line-height: 1;
+            color: $actions-muted;
+        }
+
+        &:hover {
+            background: #f3f4f6;
+        }
+
+        // The trigger carries no href, so give keyboard users a focus ring.
+        &:focus-visible {
+            outline: 2px solid $actions-accent;
+            outline-offset: 2px;
+        }
+    }
+
+    // Hidden until opened. Opening is click-only, handled in JS.
+    //
+    // There used to be a :hover rule revealing this, and it fought the JS:
+    // jQuery .toggle() reads the CURRENT computed display, so hovering made
+    // the menu visible and the click that followed toggled it back to
+    // `display: none` inline. The first click appeared to do nothing.
+    .action-items {
+        display: none;
+        position: absolute;
+        right: 0.5rem;
+        margin-top: 0.3rem;
+        background: #fff;
+        border: 1px solid $actions-border;
+        border-radius: 8px;
+        box-shadow: $actions-shadow;
+        padding: 0.3rem 0;
+        list-style: none;
+        min-width: 12rem;
+        z-index: 10;
+        text-align: left;
+
+        li {
+            margin: 0;
+
+            a {
+                display: block;
+                padding: 0.45rem 0.9rem;
+                color: inherit;
+                text-decoration: none;
+                white-space: nowrap;
+                font-size: 0.85rem;
+                font-weight: 500;
+
+                &:hover {
+                    background: #f3f4f6;
+                    color: $actions-accent;
+                }
+            }
+        }
+
+        // The embedded monitoring flag link is a pill button elsewhere; inside
+        // this menu it should read as another menu item.
+        .flag-monitoring a {
+            display: block;
+            padding: 0.45rem 0.9rem;
+            background: none;
+            border: 0;
+            border-radius: 0;
+            color: inherit;
+            font-size: 0.85rem;
+            font-weight: 500;
+
+            &:hover {
+                background: #f3f4f6;
+                color: $actions-accent;
+            }
+        }
     }
 }
 
