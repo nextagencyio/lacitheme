@@ -19,10 +19,29 @@
  * Add your custom theme override functions here.
  */
 
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Language\LanguageInterface;
+use Drupal\node\NodeInterface;
+use Drupal\node\Entity\Node;
+
 /**
  * Implements hook_preprocess_block().
  */
 function lacitheme_preprocess_block(&$variables) {
+  // Ported from zurb_foundation: block.html.twig is written against these.
+  $title_class = &$variables['title_attributes']['class'];
+  $title_class[] = 'block-title';
+
+  $region = $variables['configuration']['region'] ?? '';
+  if ($region === 'header') {
+    $title_class[] = 'visually-hidden';
+    $variables['attributes']['class'][] = 'header';
+  }
+
+  // A unique class per block, for styling.
+  if (isset($variables['attributes']['id'])) {
+    $variables['attributes']['class'][] = $variables['attributes']['id'];
+  }
 }
 
 /**
@@ -46,8 +65,15 @@ function lacitheme_preprocess_menu(&$variables) {
  * Add template suggestions and classes.
  */
 function lacitheme_preprocess_node(&$variables) {
+  // Ported from zurb_foundation: view-mode suggestions and title class.
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['elements']['#node']->bundle() . '__' . $variables['view_mode'];
+  $variables['theme_hook_suggestions'][] = 'node__' . $variables['view_mode'];
 
+  if (empty($variables['teaser'])) {
+    $variables['content_attributes']['class'][] = 'view-mode-' . $variables['view_mode'];
+  }
 
+  $variables['title_attributes']['class'][] = 'node-title';
 }
 
 /**
@@ -59,6 +85,128 @@ function lacitheme_preprocess_node(&$variables) {
 function lacitheme_preprocess_page(&$variables) {
   if (empty($variables['laci_login_image_url'])) {
     $variables['laci_login_image_url'] = \Drupal::service('file_url_generator')->generate(\Drupal::service('extension.list.theme')->getPath('lacitheme').'/images/img-login-left.png');
+  }
+
+  // --- Ported from the zurb_foundation base theme -------------------------
+  // page.html.twig reads these seven variables. They used to be set by the
+  // base theme; the theme now sets them itself so the base can be removed.
+
+  // Sidebar-dependent grid classes for the main column.
+  $left = !empty($variables['page']['sidebar_first']);
+  $right = !empty($variables['page']['sidebar_second']);
+  if ($left && $right) {
+    $variables['main_grid'] = 'cell medium-6 medium-order-2';
+    $variables['sidebar_first_grid'] = 'cell medium-3 medium-order-1';
+    $variables['sidebar_sec_grid'] = 'cell medium-3 medium-order-3';
+  }
+  elseif ($right) {
+    $variables['main_grid'] = 'cell medium-9';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = 'cell medium-3';
+  }
+  elseif ($left) {
+    $variables['main_grid'] = 'cell medium-9 medium-order-2';
+    $variables['sidebar_first_grid'] = 'cell medium-3 medium-order-1';
+    $variables['sidebar_sec_grid'] = '';
+  }
+  else {
+    $variables['main_grid'] = 'cell';
+    $variables['sidebar_first_grid'] = '';
+    $variables['sidebar_sec_grid'] = '';
+  }
+
+  if (!empty($variables['page']['highlighted'])) {
+    $variables['page']['highlighted']['#attributes']['class'][] = 'region-highlighted';
+    $variables['page']['highlighted']['#attributes']['class'][] = 'panel';
+  }
+
+  // The base theme drove these from its own theme settings, all of which were
+  // unset on this site — so the effective values were false and empty. Fixed
+  // here rather than carried over as settings nobody had configured.
+  $variables['meta_header_grid'] = FALSE;
+  $variables['block_copyright_show'] = FALSE;
+  $variables['block_copyright'] = ['#markup' => ''];
+  $variables['block_copyright_custom_text'] = '';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for html.
+ *
+ * Ported from zurb_foundation. Supplies the body classes the stylesheet is
+ * written against — lang-*, section-*, views-page.
+ */
+function lacitheme_preprocess_html(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage(LanguageInterface::TYPE_CONTENT);
+  $request = \Drupal::request();
+
+  $variables['attributes']['class'][] = 'lang-' . $language->getId();
+
+  if (!\Drupal::service('path.matcher')->isFrontPage()) {
+    [$path] = explode('?', $request->getRequestUri(), 2);
+    $arg = explode('/', trim($path, '/'));
+    $section = $arg[0];
+    if ($arg[0] === 'node' && isset($arg[1])) {
+      if ($arg[1] === 'add') {
+        $section = 'node-add';
+      }
+      elseif (isset($arg[2]) && is_numeric($arg[1]) && ($arg[2] === 'edit' || $arg[2] === 'delete')) {
+        $section = 'node-' . $arg[2];
+      }
+    }
+    $variables['attributes']['class'][] = Html::getClass('section-' . $section);
+  }
+
+  if ($request->attributes->get('view_id')) {
+    $variables['attributes']['class'][] = 'views-page';
+  }
+  elseif ($request->attributes->get('panel')) {
+    $variables['attributes']['class'][] = 'panels-page';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for breadcrumb.
+ *
+ * Ported from zurb_foundation. breadcrumb.html.twig prints the current page
+ * title as the last crumb.
+ */
+function lacitheme_preprocess_breadcrumb(&$variables) {
+  $route_object = \Drupal::routeMatch()->getRouteObject();
+  if ($route_object) {
+    $variables['title'] = \Drupal::service('title_resolver')
+      ->getTitle(\Drupal::request(), $route_object);
+    $variables['#cache']['contexts'][] = 'url';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for status messages.
+ *
+ * Ported from zurb_foundation. status-messages.html.twig maps Drupal's
+ * message types onto callout classes through this array.
+ */
+function lacitheme_preprocess_status_messages(&$variables) {
+  $variables['zurb_status_class_mapping'] = [
+    'error' => 'alert',
+    'status' => 'success',
+    'warning' => 'warning',
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for page.
+ *
+ * Ported from zurb_foundation. Adds page--node--<bundle>.html.twig, which is
+ * how the login page template is selected.
+ */
+function lacitheme_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    if (is_numeric($node)) {
+      $node = Node::load($node);
+    }
+    if ($node instanceof NodeInterface) {
+      array_splice($suggestions, 1, 0, 'page__node__' . $node->bundle());
+    }
   }
 }
 

@@ -19,6 +19,7 @@ global:
   js:
     js/lacitheme.js: { }
     js/actions-menu.js: { }
+    js/top_bar_active.js: { }
     js/foundation.min.js: {minified: true}
     js/foundation_init.js: {}
   dependencies:
